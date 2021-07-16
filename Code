@@ -1,0 +1,62 @@
+# survive outcome
+def survive():
+    print('Blimey, you made it')
+    playagain()
+
+# asking whether they want to play again
+def playagain():
+    answer = input("\nWould you like to play again?: (Y/N)")
+
+    if answer == "Y":
+        door1()
+    else:
+        print("\nThanks for playing")
+        exit()
+
+# box inside door 1
+def box1():
+    print("Open Box? (Yes or No)")
+    box = input().upper()
+    if "Y" in box.upper():
+        print("\nIt's Pandora's box, you die.")
+        playagain()
+
+    elif "N" in box.upper():
+        return survive()
+        playagain()
+    else:
+        print("you messed up somewhere")
+        playagain()
+
+# growling after door 1 not opened
+def growling1():
+    print("You hear a creature growling in the corridor. Do you investigate it or run away? (Inv or RA")
+    growl = input().upper()
+    if "INV" in growl.upper():
+        print('\nYou finna die')
+        playagain()
+
+    elif "R" in growl.upper():
+        return survive()
+    else:
+        print("you messed up somewhere")
+        playagain()
+
+# where the game begins
+def door1():
+    print("Open Door? (Yes or No)")
+    door = input().upper()
+
+    if "Y" in door.upper():
+        print("You enter the room")
+        box1()
+
+    elif "N" in door.upper():
+        print("You ignore the door")
+        growling1()
+    else:
+        print("you messed up somewhere")
+
+# initiating the first function
+
+DoorOpen = door1()
